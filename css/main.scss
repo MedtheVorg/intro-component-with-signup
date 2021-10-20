@@ -33,7 +33,7 @@ body {
   }
 }
 body {
-  background: url(../images/bg-intro-desktop.png);
+  background: url(/images/bg-intro-desktop.png);
   background-color: color(primary-red);
   padding: 1rem;
   font-family: "Poppins", sans-serif;
@@ -47,6 +47,7 @@ body {
 
 .container {
   margin-top: 4rem;
+  max-width: 72.375rem;
 
   @include desktop {
     display: flex;
@@ -101,43 +102,26 @@ body {
       box-shadow: 0 10px 2px rgba(62, 60, 73, 0.2);
 
       form {
-        .form__inputwarning {
+        .text-field {
           position: relative;
           width: 100%;
           margin-bottom: 1rem;
 
-          .warning {
-            background: url(../images/icon-error.svg);
-            background-repeat: no-repeat;
-            position: absolute;
-            top: 20%;
-            right: 5%;
-            z-index: 1;
-          }
-          .message {
-            display: block;
-            text-align: right;
-            font-style: italic;
-            color: color(primary-red);
-            font-size: 0.8rem;
-            font-weight: 300;
-            margin-top: 0.5rem;
-          }
-        }
-        input {
-          width: 100%;
-          padding: 1.5rem;
-          border-radius: 5px;
-          // margin-bottom: 1rem;
-          font-weight: 700;
-          font-size: 1rem;
-          border: 1px solid rgba(0, 0, 0, 0.1);
-          outline: none;
-          color: color(Neutral-dark-blue);
-          position: relative;
+          .text-field__input {
+            width: 100%;
+            padding: 1.5rem;
+            border-radius: 5px;
+            // margin-bottom: 1rem;
+            font-weight: 700;
+            font-size: 1rem;
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            outline: none;
+            color: color(Neutral-dark-blue);
+            position: relative;
 
-          &:focus {
-            border: 1px solid color(accent);
+            &:focus {
+              border: 1px solid color(accent);
+            }
           }
         }
 
@@ -183,6 +167,26 @@ footer {
     padding: 2rem;
   }
 }
-.hidden {
-  display: none !important;
+
+.text-field--error {
+  &::before {
+    content: url(/images/icon-error.svg);
+    position: absolute;
+    top: 25%;
+    right: 5%;
+    z-index: 2;
+  }
+
+  .text-field__input {
+    border: 3px solid color(primary-red) !important;
+  }
+  .text-field__error {
+    display: block;
+    text-align: right;
+    font-style: italic;
+    color: color(primary-red);
+    font-size: 0.8rem;
+    font-weight: 300;
+    margin-top: 0.5rem;
+  }
 }
